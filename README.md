@@ -1,11 +1,11 @@
 # DUCS-Datastore
 Node.js webApp using mongoDb
 
-## [Click here to visit the webapp](https://ducs-datastore.herokuapp.com/)
+#### [Click here to visit the webapp: DUCS-Datastore](https://ducs-datastore.herokuapp.com/)
 
 ## Install following node modules
 
-"dependencies":
+### dependencies :
 
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
