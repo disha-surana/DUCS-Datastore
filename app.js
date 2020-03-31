@@ -11,7 +11,7 @@ var express                 = require("express"),
     app                     = express();
 
 //require dotenv
-require('dotenv/config');
+require('./dotenv/config');
     
 //Require models
 var User                    = require("./models/user"),
