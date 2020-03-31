@@ -3,6 +3,8 @@ var express  = require("express"),
     User     = require("../models/user"),
     router   = express.Router();
 
+//require dotenv
+require('dotenv/config');
 
 //********AUTH ROUTES ***********//
 //Basic home route which returns ejs file from views directory
@@ -22,7 +24,7 @@ router.get("/register", function(req, res){
 //handle sign up logic
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
-    if(req.body.adminCode == "harekrishna123"){
+    if(req.body.adminCode == process.env.ADMIN_PASS){
         newUser.isAdmin = true;
     }
     User.register(newUser, req.body.password, function(err, user){

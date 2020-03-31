@@ -10,7 +10,8 @@ var express                 = require("express"),
     flash                   = require("connect-flash"),
     app                     = express();
 
-
+//require dotenv
+require('dotenv/config');
     
 //Require models
 var User                    = require("./models/user"),
@@ -33,7 +34,7 @@ app.set("view engine", "ejs");              //Set ejs as default view engine
 app.use(expressSanitizer());                //Used to remove script tags from content
 
 app.use(require("express-session")({
-    secret: "Any random sentence",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }));
@@ -49,10 +50,8 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-var url="mongodb+srv://dian:anishadisha@dian-zwhj7.mongodb.net/test?retryWrites=true&w=majority";
-var url2="mongodb://localhost/PV12";
 
-mongoose.connect(url, function (err) {
+mongoose.connect(process.env.MONGOOSE_URL, function (err) {
     if(err){
         console.log("mongoose atlas not connected: " + err.message);
     }
@@ -66,7 +65,7 @@ app.use(bodyParser.urlencoded({extended:true}));    //To access form data
 
 //=========================================
 //To initialize db: seedDB
-// seedDb();
+//seedDb();
 //=========================================
 
 //To pass in every ejs by every single route the value of currentUser, this function will be called on every single route, whatever we put in res.locals is available inside our template , next function tells us to carry on move to actual next code 

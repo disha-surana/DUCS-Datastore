@@ -9,11 +9,10 @@ var express             = require("express"),
     Grid                = require('gridfs-stream'),
     methodOverride      = require('method-override');
 
+//require dotenv
+require('dotenv/config');
 
-const mongoURI2= "mongodb://localhost/PV10";
-const mongoURI="mongodb+srv://dian:anishadisha@dian-zwhj7.mongodb.net/test?retryWrites=true&w=majority";
-
-const conn = mongoose.createConnection(mongoURI, {
+const conn = mongoose.createConnection(process.env.MONGOOSE_URL, {
 useNewUrlParser: true,
 useUnifiedTopology: true
 });
@@ -27,7 +26,7 @@ conn.once('open', function(){
 
 // Create storage engine
 const storage = new GridFsStorage({
-    url: mongoURI,
+    url: process.env.MONGOOSE_URL,
     file: function(req, file){
         const filename=file.originalname;
         const fileInfo = {
