@@ -50,8 +50,9 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
+var databaseUrl = process.env.MONGOOSE_URL || "mongodb://localhost/ducsdatastore"
 
-mongoose.connect(process.env.MONGOOSE_URL, function (err) {
+mongoose.connect(databaseUrl, function (err) {
     if(err){
         console.log("mongoose atlas not connected: " + err.message);
     }

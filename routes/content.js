@@ -12,7 +12,10 @@ var express             = require("express"),
 //require dotenv
 require('dotenv/config');
 
-const conn = mongoose.createConnection(process.env.MONGOOSE_URL, {
+var databaseUrl = process.env.MONGOOSE_URL || "mongodb://localhost/ducsdatastore"
+
+
+const conn = mongoose.createConnection(databaseUrl, {
 useNewUrlParser: true,
 useUnifiedTopology: true
 });
@@ -26,7 +29,7 @@ conn.once('open', function(){
 
 // Create storage engine
 const storage = new GridFsStorage({
-    url: process.env.MONGOOSE_URL,
+    url: databaseUrl,
     file: function(req, file){
         const filename=file.originalname;
         const fileInfo = {
