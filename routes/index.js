@@ -4,7 +4,7 @@ var express  = require("express"),
     router   = express.Router();
 
 //require dotenv
-require('dotenv/config');
+//require('dotenv/config');
 
 //********AUTH ROUTES ***********//
 //Basic home route which returns ejs file from views directory
