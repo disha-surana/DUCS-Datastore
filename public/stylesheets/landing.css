@@ -1,0 +1,83 @@
+body {
+  background-color: #000; /*Black background between picture transitions*/
+}
+
+#landing-header {
+z-index: 1;               /*z dimension given to the text*/
+position: relative;       /*Default position for all html elements is static so it is set to relative so that z-index can be applied*/  
+text-align: center;       /*Centers horizontally to the screen*/          
+padding-top: 40vh;        /*Center vertically to the screen*/
+}
+
+#landing-header h1 {
+    color: #fff;  /*Setting text color to white*/
+}
+
+/*Styling the unordered list*/
+.slideshow { 
+    position: fixed;  /*setting the position of background image to be fixed*/
+    width: 100%;      /*100% so it covers full screen*/
+    height: 100%;
+    top: 0;           /*moving picture to the top left corner to start from*/
+    left: 0;
+    z-index: 0;       /*This makes sure background images are behind the other text and button content*/
+    list-style: none; /*To remove the bullet points so that we don't see the list items*/
+    margin: 0;        /*To avoid any spaces margin and padding is removed*/
+    padding: 0;
+  }
+
+ /*Styling each list item individually*/
+ .slideshow li { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;       /*So that is covers whole background*/
+    background-position: 50% 50%; /*To center image*/
+    background-repeat: no-repeat; /*Smaller images are not repreated rather stretched*/
+    opacity: 0;   /*To start images from being faded out and by animation we'll add some opacity*/
+    z-index: 0;   
+    animation: imageAnimation 50s linear infinite; /*Fade images, lasts for 50s, linear means same speed from start to end and loop infinitely so that slideshow never ends  */
+  } 
+
+  .slideshow li:nth-child(1) { 
+    background-image: url("../a.jpg") 
+  }
+  .slideshow li:nth-child(2) { 
+    background-image: url("../b.jpg");
+    animation-delay: 10s; 
+  }
+  .slideshow li:nth-child(3) { 
+    background-image: url("../c.jpg");
+    animation-delay: 20s; 
+  }
+  .slideshow li:nth-child(4) { 
+    background-image: url("../a.jpg");
+    animation-delay: 30s; 
+  }
+  .slideshow li:nth-child(5) { 
+    background-image: url("../d.jpg");
+    animation-delay: 40s; 
+  }
+  @keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+  }
+
+  /* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

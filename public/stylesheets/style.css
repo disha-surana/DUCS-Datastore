@@ -1,0 +1,44 @@
+.parent{
+	text-align:center
+}
+
+#fileul{
+	list-style: none; /*remove bullet points*/
+	margin: 0;
+	padding: 0;
+}
+
+#fileli{
+	background-color: white;
+	height: 40px;
+	line-height: 40px;  /* so that text covers the height and is in between the li not top or bottom*/
+	color: #666;
+	padding-left: 10px;
+}
+
+#fileli:nth-child(2n){
+	background-color: #f7f7f7;
+}
+
+.required{
+	color: red;
+}
+
+#inputInstruct{
+	color: gray;
+	font-size: small;
+}
+
+.content{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+#mainNavbar .nav-link:hover{
+	color: white;
+}
+
+img{
+	width: 100%;
+	
+}

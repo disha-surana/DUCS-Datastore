@@ -1,0 +1,36 @@
+<%- include ("partials/header.ejs")%> 
+
+<div class="container">
+  <h1 class="text-center display-4 my-4">Add Content </h1>
+  <h1 class="text-center display-4 my-4"><%= subject.code %> : <%=subject.name %></h1>
+    <div class="row">
+      <div class="col-md-6 m-auto">
+        
+        <form action="/sem/<%=sem_no%>/<%=subject.code%>" method="POST" enctype="multipart/form-data">
+               <!-- backend -->
+            <div class="custom-file mb-6" >
+              <div class="form-data">
+                  <input type="file" name="file" id="fileInput"  class="custom-file-input" multiple>
+                  <label for="file" class="custom-file-label">Choose File</label>
+              </div>
+            </div>
+              <ul id="fileul"> </ul>
+              <div class="form-group">
+                  <label for="topic">Topic</label>
+                  <input type="text" name="topic" class="form-control" id="topic" placeholder="Enter Topic">
+              </div>
+              <div class="form-group">
+                  <label for="desc">Description</label>
+                  <textarea class="form-control" name="desc" id="desc" rows="3"></textarea>
+              </div>
+            <input type="submit" value="Submit" class="btn btn-primary btn-block">
+            
+          </form>
+          <a class="btn btn-primary" href="/sem/<%=sem_no%>/<%=subject.code%>">Go back</a>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript" src="/JS/contentform.js"></script> 
+
+<%- include ("partials/footer.ejs")%>

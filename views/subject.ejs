@@ -1,0 +1,79 @@
+<%- include ("partials/header.ejs") %>
+
+<div class="container">
+    <div class="container-fluid">   
+        <h1 class="text-center display-4 my-4"> <%= subject.code %> : <%= subject.name %></h1>
+        <div class="row">
+            <div class="col mx-5">
+                <div class= "row mb-2">
+                    <div class="col-md-6 "  style="text-align:left">
+                        <a class = "btn btn-lg" href="/sem/<%=sem_no%>">
+                            <i class="fa fa-caret-left fa-lg" aria-hidden="true"></i> Back
+                        </a>   
+                    </div>
+                    <div class="col-md-6 "  style="text-align:right">
+                        <a href="/sem/<%=sem_no%>/<%=subject.code%>/addContent" class="btn btn-dark">
+                            <i class="fa fa-plus " aria-hidden="true"></i> Add new post
+                        </a>
+                    </div>
+                </div>
+            <%if(posts){%>
+                <% posts.forEach(function(post){%>
+                    
+                    <div class="row card card-body mb-2">
+                        <div class="row m-0 p-0">
+                            <div class="col-md-10">
+                                <strong>Title:</strong> <%=post.title%>
+                                <br>
+                                <strong>Description: </strong><span class="font-weight-light"> <%-post.content%></span> 
+                            </div>
+                            <div class="col-md-2" style="align-items: right;">
+                                <form method="POST" action="/deletepost/<%=sem_no%>/<%=subject.code%>/<%=post.id%>">
+                                    <button class="btn btn-danger btn-sm">Delete Post</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row mb-2 m-0 p-0">
+                            <div class="col-md-12">
+                            <strong>Author:</strong> <%=post.author.name%> 
+                            <span class="float-right"><strong>Posted On:</strong> <%=post.postdate%></span>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-bordered">
+                            <%if(post.files){%>
+                                <% post.files.forEach(function(file){%>
+                                    <tr>
+                                        <td>
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <%=file.filename%> 
+                                                <a class="btn" href="/Download/<%=file._id%>"> 
+                                                    <i class="fa fa-download fa-lg" aria-hidden="true"></i>
+                                                </a>
+                                                <span class=float-right>
+                                                    <form method="POST" action="/files/<%=sem_no%>/<%=subject.code%>/<%=post.id%>/<%= file._id %>">
+                                                        <button class="btn">
+                                                            <i class="fa fa-trash-o fa-lg" aria-hidden="true" style="color:red"></i>
+                                                        </button>
+                                                    </form>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                <%});%>
+                            <%}%> 
+                        </table>
+                    </div>
+                <%});%>
+            <%} else {%>
+                <p>No posts yet</p>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+</div>
+<!--get sems value by passing from app.js route-->
+
+<%- include ("partials/footer.ejs") %>

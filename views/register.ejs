@@ -1,0 +1,37 @@
+<%- include ("partials/header") %>
+
+<div class="container " style="margin: 20px auto;">
+    <div id="push" class="container mt-2">
+            
+                
+    </div>
+    <div clas="row">
+        <h1 style="text-align:center">Register!</h1>
+        <div style="width: 30%; margin:30px auto;">
+            <form action="/register" method="POST">
+                <div class="form-group">
+                        <label for="username">Username</label><span class="required"> *</span>
+                        <input class="form-control" type="text" id= "username" name="username" placeholder="Username" style="text-transform: capitalize" required>
+                </div>
+                <div class="form-group">
+                        <label for="password">Password</label><span class="required"> *</span>
+                        <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+                        <p id="inputInstruct" class="text-center">Password length: (8-20 characters)</p>
+                </div>
+                <div class="form-group">
+                        <label for="adminCode">Admin Code </label>
+                        <input class="form-control" type="password" name="adminCode" placeholder="Admin Code">
+                        <p id="inputInstruct" class="text-center">Optional: for Admins only</p>
+                </div>
+                <div class="form-group">
+                        <button type="submit" value="Register" onclick = "return checkPass();" class="btn btn-primary form-control">Register</button>
+                </div>
+            </form>
+            <span class="required"> *mandatory fields</span>  
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/JS/validateUser.js"></script>
+
+<%- include ("partials/footer") %>

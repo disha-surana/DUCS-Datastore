@@ -1,0 +1,35 @@
+<%- include ("partials/header") %>
+    
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Welcome to DUCS Datastore</h1>
+        </div>
+    </header>
+
+    <!-- <%= subjects %> -->
+    <% if(subjects){ %>
+
+        <div class="row" style="display:flex; flex-wrap: wrap;">
+            
+            <%for(var i=0;i<subjects.length;i++){ %>
+                <div class="col-md-4 col-sm-4">
+                        <div class="card bg-light mb-3 text-center">
+                                <div class="card-header">
+                                    <%=subjects[i].code%>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><%=subjects[i].name%></h5>
+                                    <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                                    <p class="card-text"><%=subjects[i].teacher%></p>
+                                    <a href="/sem/<%=sem%>/<%=subjects[i].code%>" class="btn btn-primary">Open</a>
+                                </div>
+                        </div>                    
+                </div>
+            <%}%>
+    </div>
+
+    <% } %>
+    
+</div>
+<%- include ("partials/footer.ejs") %>
