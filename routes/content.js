@@ -10,7 +10,9 @@ var express             = require("express"),
     methodOverride      = require('method-override');
 
 
-const mongoURI= "mongodb://localhost/PV10";
+const mongoURI2= "mongodb://localhost/PV10";
+const mongoURI="mongodb+srv://dian:anishadisha@dian-zwhj7.mongodb.net/test?retryWrites=true&w=majority";
+
 const conn = mongoose.createConnection(mongoURI, {
 useNewUrlParser: true,
 useUnifiedTopology: true

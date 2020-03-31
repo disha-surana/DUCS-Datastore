@@ -46,14 +46,24 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
+var url="mongodb+srv://dian:anishadisha@dian-zwhj7.mongodb.net/test?retryWrites=true&w=majority";
+var url2="mongodb://localhost/PV12";
 
-mongoose.connect("mongodb://localhost/PV12");  
+mongoose.connect(url, function (err) {
+    if(err){
+        console.log("mongoose atlas not connected: " + err.message);
+    }
+    else{
+        console.log("Moongoose connected");
+    }
+
+});  
 
 app.use(bodyParser.urlencoded({extended:true}));    //To access form data
 
 //=========================================
 //To initialize db: seedDB
-seedDb();
+// seedDb();
 //=========================================
 
 //To pass in every ejs by every single route the value of currentUser, this function will be called on every single route, whatever we put in res.locals is available inside our template , next function tells us to carry on move to actual next code 
