@@ -10,7 +10,7 @@ var express             = require("express"),
     methodOverride      = require('method-override');
 
 //require dotenv
-require('dotenv/config');
+//require('dotenv/config');
 
 var databaseUrl = process.env.MONGOOSE_URL || "mongodb://localhost/ducsdatastore"
 
