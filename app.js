@@ -23,6 +23,9 @@ var indexRoutes     = require("./routes/index"),
     semRoutes       = require("./routes/sem"),
     contentRoutes   = require("./routes/content");
 
+//port set
+app.set("port", (process.env.PORT || 3000));
+
 app.use(flash());
 app.use(bodyParser.json());
 app.use(express.static("public"));          //Serve public directory
@@ -84,6 +87,6 @@ app.use(contentRoutes);
 
 
 //Code start listening server
-app.listen(3000, function(){
+app.listen(app.get('port'), function(){
     console.log("Server started listening");
 });
