@@ -1,7 +1,7 @@
 # DUCS-Datastore
 Node.js webApp using mongoDb
 
-#### A webApp where all study material for the students of Department of Computer Science, Delhi University can be found.    [Click here to visit 'DUCS-Datastore'](https://ducs-datastore.herokuapp.com/)
+#### A webApp where all study material for the students of Department of Computer Science, Delhi University can be found. <br/>[Click here to visit 'DUCS-Datastore'](https://ducs-datastore.herokuapp.com/)
 
 
 ## Install following node modules
