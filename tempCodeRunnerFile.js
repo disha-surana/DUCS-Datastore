@@ -1,1 +1,0 @@
-expressSanitizer        = require("express-sanitizer")
